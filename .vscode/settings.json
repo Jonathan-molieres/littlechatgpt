@@ -1,0 +1,98 @@
+{
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.organizeImports": false,
+      "source.sortImports": true
+    }
+  },
+  "[typescript]": {
+    // "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "vs-code-prettier-eslint.prettierLast": "false", // set as "true" to run 'prettier' last not first
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.organizeImports": false,
+      "source.sortImports": true
+    }
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.organizeImports": false,
+      "source.sortImports": true
+    }
+  },
+  "python.autoComplete.extraPaths": [
+    "./back/.venv/lib/python3.11/site-packages"
+  ],
+  "black-formatter.args": ["--line-length", "80"],
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoImportUserSymbols": true,
+  "python.analysis.indexing": true,
+  "python.analysis.extraPaths": ["./back/.venv/lib/python3.11/site-packages/"],
+  "python.linting.flake8Path": "pyflakes",
+  "python.linting.blackEnabled": true,
+  "python.linting.pydocstyleEnabled": true,
+  "python.linting.pep8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.banditEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.formatting.provider": "none",
+  "ruff.args": ["--config=./back/pyproject.toml"],
+  //   "ruff.path": "back",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.tabSize": 4,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      //   "source.fixAll": true,
+      "source.organizeImports": true,
+      "source.organizeImports.ruff": true
+    }
+  },
+  "ruff.organizeImports": true,
+
+  //   "files.exclude": {
+  //     "**/.git": true,
+  //     "**/.DS_Store": true,
+  //     "**/node_modules": true,
+  //     "**/.venv": true,
+  //     "**/.storage": true,
+  //     "**/.mypy_cache": true,
+  //     "**/.next": true
+  //   },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
+}

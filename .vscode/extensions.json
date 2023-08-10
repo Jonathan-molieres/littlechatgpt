@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "rvest.vs-code-prettier-eslint",
+    "ms-python.black-formatter",
+    "ms-python.python",
+    "charliermarsh.ruff",
+    "stylelint.vscode-stylelint",
+    "Huuums.vscode-fast-folder-structure",
+    "clinyong.vscode-css-modules",
+    "donjayamanne.python-extension-pack",
+    "KevinRose.vsc-python-indent"
+  ]
+}
