@@ -1,48 +1,34 @@
 import torch
 import torch.nn as nn
-import torch.optim as optim
-import torchvision.models as models
-import torchvision.transforms as transforms
-from PIL import Image
 
-# Télécharger le modèle ResNet-18 pré-entraîné
-model = models.resnet18(pretrained=True)
 
-# Charger une image de test (par exemple, une image d'un chat)
-image_path = "chemin/vers/votre/image.jpg"
-image = Image.open(image_path)
+# Définition de votre modèle
+class SimpleLSTM(nn.Module):
+    def __init__(self):
+        super(SimpleLSTM, self).__init__()
 
-# Prétraitement de l'image pour la compatibilité avec ResNet-18
-preprocess = transforms.Compose(
-    [
-        transforms.Resize(256),
-        transforms.CenterCrop(224),
-        transforms.ToTensor(),
-        transforms.Normalize(
-            mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
-        ),
-    ]
-)
+    def forward(self, x):
+        embedded = self.embedding(x)
+        output, _ = self.lstm(embedded)
+        return self.linear(output)
 
-input_tensor = preprocess(image)
-input_batch = input_tensor.unsqueeze(
-    0
-)  # Ajouter une dimension supplémentaire pour le lot
 
-# Mettre le modèle en mode évaluation (pas de mise à jour des gradients)
+save_path = "./storage/test.pth"
+
+model = SimpleLSTM()
+
+# Charger le dictionnaire d'état
+state_dict = torch.load(save_path)
+
+# Charger le dictionnaire d'état dans le modèle
+model.load_state_dict(state_dict)
+
 model.eval()
 
-# Passer l'image par le modèle pour obtenir les prédictions
+
+example_input = torch.tensor([[1, 2, 3, 4, 5]])
 with torch.no_grad():
-    output = model(input_batch)
+    predicted_output = model(example_input)
 
-# Charger les étiquettes pour ImageNet
-LABELS_URL = "https://raw.githubusercontent.com/anishathalye/imagenet-simple-labels/master/imagenet-simple-labels.json"
-import requests
 
-LABELS = requests.get(LABELS_URL).json()
-
-# Obtenir l'indice de classe prédit et afficher la prédiction
-_, predicted_idx = torch.max(output, 1)
-predicted_label = LABELS[predicted_idx.item()]
-print("Prédiction : ", predicted_label)
+print(predicted_output)
